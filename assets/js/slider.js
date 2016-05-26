@@ -215,7 +215,6 @@
 			//runCallBack
 			s.target=s.slides[s.index];
 			if(s.params.onSlideChangeStart)s.params.onSlideChangeStart(s);
-			e.stopPropagation();
 		};
 		s.onTouchMove=function(e){
 			s.touches.currentX=e.touches[0].clientX;
@@ -232,6 +231,7 @@
 				s.container.removeEventListener("touchmove",preventDefault,false);
 				return;
 			}
+			e.stopPropagation();
 			//x轴距离左边的像素，向左为负数，向右为正数
 			var moveX=s.touches.posX-s.touches.diffX;
 			//判断是否是边缘
